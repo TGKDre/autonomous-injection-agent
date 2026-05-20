@@ -1,0 +1,48 @@
+# Attack surface definitions for the autonomous attacker agent
+
+targets:
+  - id: chat_surface
+    description: Primary chat endpoint -- direct message field
+    path: /chat
+    field: message
+    difficulty: low
+
+  - id: document_qa_surface
+    description: Document Q&A endpoint -- indirect input via document content
+    path: /document-qa
+    field: document
+    difficulty: medium
+    notes: >
+      Highest-risk surface. User-supplied documents are interpolated directly
+      into the LLM prompt, mirroring the pi_agent_001 vulnerability from
+      agent-security-sandbox.
+
+  - id: search_surface
+    description: Search endpoint -- query field
+    path: /search
+    field: q
+    difficulty: low
+
+  - id: ask_surface
+    description: Ask endpoint -- alternative query field
+    path: /ask
+    field: query
+    difficulty: low
+
+attack_categories:
+  - role_hijacking
+  - instruction_override
+  - data_exfiltration
+  - context_poisoning
+  - delimiter_injection
+  - goal_hijacking
+  - jailbreak
+
+mutation_strategies:
+  - add urgency framing
+  - switch to base64
+  - use nested delimiters
+  - add role confusion
+  - use markdown injection
+  - context escape
+  - token stuffing
