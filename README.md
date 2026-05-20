@@ -8,6 +8,8 @@ research reports.
 
 Companion project to [agent-security-sandbox](https://github.com/TGKDre/agent-security-sandbox).
 
+**Written analysis:** [What Happens When Your Defense Hits a Hard Floor](https://medium.com/@andre.obiuzo/what-happens-when-your-defense-hits-a-hard-floor-08ad2b8fafab) -- on prompt injection, converging failures, and what the results mean beyond security.
+
 ---
 
 ## Research Motivation
@@ -18,7 +20,7 @@ all defenses for both GPT and Claude because the attack encodes multiple indepen
 compromise phrases that a static blocklist cannot exhaustively cover.
 
 That finding raised a follow-on question: if a static pattern library cannot close the
-gap, can an **autonomous LLM agent** — given only the target URL — discover novel
+gap, can an **autonomous LLM agent** -- given only the target URL -- discover novel
 payload variants beyond the static library? This project answers that question empirically.
 
 ---
@@ -119,7 +121,7 @@ simulating a real-world AI-backed customer support system. It:
 - Includes synthetic secrets in the system prompt (realistic formats, not real values)
 - Exposes 4 input surfaces: `/chat`, `/ask`, `/document-qa`, `/search`
 - The document Q&A surface mirrors the `pi_agent_001` document store vulnerability
-  identified in `agent-security-sandbox` — user-supplied content is interpolated
+  identified in `agent-security-sandbox` -- user-supplied content is interpolated
   directly into the LLM prompt without structural isolation
 
 All secrets are synthetic values with realistic formats for detection fidelity.
@@ -127,7 +129,7 @@ No real credentials are used anywhere in this project.
 
 ---
 
-## InjectionJudge — Detection Architecture
+## InjectionJudge -- Detection Architecture
 
 Three independent detection layers:
 
